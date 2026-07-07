@@ -15,6 +15,7 @@ interface BookstoreMapProps {
 
 const DEFAULT_CENTER = { lat: 36.5, lng: 127.8 };
 const DEFAULT_LEVEL = 13;
+const DEFAULT_KAKAO_MAP_APP_KEY = "d1c0a4a03267888fa5b8e3d622c731ac";
 const MARKER_COLORS = {
   independent: "#9a6a2f",
   cafe: "#15803d",
@@ -103,7 +104,7 @@ export default function BookstoreMap({
   const [mapReady, setMapReady] = useState(false);
 
   useEffect(() => {
-    const appKey = process.env.NEXT_PUBLIC_KAKAO_MAP_APP_KEY;
+    const appKey = process.env.NEXT_PUBLIC_KAKAO_MAP_APP_KEY || DEFAULT_KAKAO_MAP_APP_KEY;
 
     if (!appKey) {
       setMapError("NEXT_PUBLIC_KAKAO_MAP_APP_KEY가 설정되지 않았습니다.");

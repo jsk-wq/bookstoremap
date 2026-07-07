@@ -30,6 +30,9 @@ cp .env.example .env.local
 
 ```env
 CULTURE_API_KEY=발급받은_문화_API_키
+CAFE_BOOKSTORE_API_KEY=발급받은_카페서점_API_키
+USED_BOOKSTORE_API_KEY=발급받은_중고서점_API_키
+FAMILY_CULTURE_API_KEY=발급받은_가족문화시설_API_키
 NEXT_PUBLIC_KAKAO_MAP_APP_KEY=발급받은_카카오_JavaScript_키
 ```
 
@@ -93,3 +96,17 @@ https://jsk-wq.github.io
 ## 데이터 출처
 
 - 한국문화정보원_전국 독립서점 및 운영정보 (API_CIA_089)
+
+## Vercel 배포
+
+Vercel 프로젝트의 Settings → Environment Variables에 아래 값을 Production, Preview, Development 환경에 등록하세요.
+
+```env
+CULTURE_API_KEY=발급받은_문화_API_키
+CAFE_BOOKSTORE_API_KEY=발급받은_카페서점_API_키
+USED_BOOKSTORE_API_KEY=발급받은_중고서점_API_키
+FAMILY_CULTURE_API_KEY=발급받은_가족문화시설_API_키
+NEXT_PUBLIC_KAKAO_MAP_APP_KEY=발급받은_카카오_JavaScript_키
+```
+
+환경변수를 추가하거나 수정한 뒤에는 Vercel에서 반드시 Redeploy를 실행해야 새 값이 반영됩니다. 카카오맵을 사용하려면 Kakao Developers의 Web 플랫폼에도 Vercel 배포 도메인을 추가해야 합니다.
