@@ -6,6 +6,8 @@ import BookstoreSidebar from "@/components/BookstoreSidebar";
 import { collectKeywordOptions, filterBookstores } from "@/lib/bookstores";
 import type { Bookstore, BookstoresApiResult } from "@/types/bookstore";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function BookstoreExplorer() {
   const [bookstores, setBookstores] = useState<Bookstore[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +26,12 @@ export default function BookstoreExplorer() {
       setError(null);
 
       try {
-        const response = await fetch("/api/bookstores");
+        let response = await fetch(`${BASE_PATH}/bookstores.json`);
+
+        if (!response.ok) {
+          response = await fetch("/api/bookstores");
+        }
+
         const data = (await response.json()) as BookstoresApiResult & { error?: string };
 
         if (!response.ok) {

@@ -18,6 +18,9 @@
 # production
 /build
 
+# generated data
+/public/bookstores.json
+
 # misc
 .DS_Store
 *.pem

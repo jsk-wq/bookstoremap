@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run fetch:bookstores && next dev",
+    "fetch:bookstores": "node scripts/fetch-bookstores.mjs",
+    "build": "npm run fetch:bookstores && next build",
+    "build:pages": "npm run build",
     "start": "next start",
     "lint": "next lint"
   },
