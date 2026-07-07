@@ -23,7 +23,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "Pretendard", "sans-serif"],
+        sans: ["var(--font-literary-serif)", "Noto Serif KR", "serif"],
       },
     },
   },

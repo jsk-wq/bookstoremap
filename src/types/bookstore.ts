@@ -1,3 +1,12 @@
+export type BookstoreCategory = "independent" | "cafe" | "used" | "family";
+
+export const BOOKSTORE_CATEGORY_LABELS: Record<BookstoreCategory, string> = {
+  independent: "독립서점",
+  cafe: "카페가 있는 서점",
+  used: "중고서점",
+  family: "가족단위 문화시설",
+};
+
 export interface Bookstore {
   id: string;
   name: string;
@@ -9,6 +18,7 @@ export interface Bookstore {
   description: string;
   keywords: string;
   region: string;
+  categories: BookstoreCategory[];
 }
 
 export interface BookstoreApiItem {
@@ -19,6 +29,22 @@ export interface BookstoreApiItem {
   DESCRIPTION?: string;
   SUB_DESCRIPTION?: string;
   SUBJECT_KEYWORD?: string;
+  FCLTY_NM?: string;
+  FCLTY_ROAD_NM_ADDR?: string;
+  FCLTY_LA?: string;
+  FCLTY_LO?: string;
+  TEL_NO?: string;
+  LCLAS_NM?: string;
+  MLSFC_NM?: string;
+  WORKDAY_OPN_BSNS_TIME?: string;
+  WORKDAY_CLOS_TIME?: string;
+  SAT_OPN_BSNS_TIME?: string;
+  SAT_CLOS_TIME?: string;
+  SUN_OPN_BSNS_TIME?: string;
+  SUN_CLOS_TIME?: string;
+  RSTDE_GUID_CN?: string;
+  OPTN_DC?: string;
+  ADIT_DC?: string;
 }
 
 export interface BookstoreApiResponse {
@@ -41,6 +67,7 @@ export interface BookstoreApiResponse {
 export interface BookstoresApiResult {
   bookstores: Bookstore[];
   totalCount: number;
+  categoryCounts?: Record<BookstoreCategory, number>;
   cached: boolean;
   fetchedAt: string;
 }

@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSerifKr = Noto_Serif_KR({
+  variable: "--font-literary-serif",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "전국 독립서점 지도",
-  description: "문화공공데이터광장 독립서점 API 기반 전국 독립서점 문화 지도",
+  title: "책길 지도",
+  description: "전국의 서점을 따라 나만의 책길을 찾아보세요.",
 };
 
 export default function RootLayout({
@@ -24,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${notoSerifKr.className} ${notoSerifKr.variable} antialiased`}>
         {children}
       </body>
     </html>
